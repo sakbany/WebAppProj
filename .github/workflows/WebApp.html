@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Player Stats Search</title>
+</head>
+<body>
+    <h1>Search for NFL Player Stats</h1>
+    <input type="text" id="playerName" placeholder="Enter Player Name">
+    <button onclick="searchPlayer()">Search</button>
+    
+    <div id="playerStats"></div>
+
+    <script>
+        async function searchPlayer() {
+            const playerName = document.getElementById('playerName').value;
+            const response = await fetch(`/search-player?name=${playerName}`);
+            if (response.ok) {
+                const stats = await response.json();
+                document.getElementById('playerStats').innerHTML = JSON.stringify(stats, null, 2);
+            } else {
+                document.getElementById('playerStats').innerHTML = "Player not found or API error";
+            }
+        }
+    </script>
+</body>
+</html>
