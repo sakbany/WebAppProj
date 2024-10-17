@@ -5,8 +5,8 @@ import os
 app = Flask(__name__)
 
 
-NFL_API_URL = 'https://api.example.com/nfl/stats'  
-API_KEY = os.getenv('NFL_API_KEY')  
+NFL_API_URL = 'https://tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com/getNFLPlayerList'  
+API_KEY = os.getenv('b2ea909a78mshdcec5c927fe2abep115452jsn564e16b59c26')  
 
 @app.route('/search-player', methods=['GET'])
 def search_player():
